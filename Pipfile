@@ -1,0 +1,40 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+responder = "*"
+graphene = "*"
+asyncio = "*"
+asyncpg = "*"
+django = "*" # for migrate
+psycopg2 = "*" # for PostgreSQL
+django-extensions = "*" # for `python manage.py shell_plus`
+psycopg2-binary = "*"
+
+[requires]
+python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
+
+[dev-packages]
+jupyter = "*"
+jupyter-contrib-nbextensions = "*"
+requests = "*"
+
+[scripts]
+manage = "python $VIRTUAL_ENV/../app/manage.py"
+server = "pipenv run manage runserver" # e.g. `pipenv run server 8096`
+s = "pipenv run server"
+console = "pipenv run manage shell_plus --ipython"
+c = "pipenv run console"
+notebook = "pipenv run manage shell_plus --notebook"
+routes = "pipenv run manage show_urls"
+test = "pipenv run manage test"
+migration = "pipenv run manage makemigrations"
+"db:migrate" = "pipenv run manage migrate"
+db = "pipenv run manage dbshell"
+flush = "pipenv run manage flush"
+db-reset = "pipenv run manage reset_db"
