@@ -1,18 +1,14 @@
 import graphene
-from .vine import QueryVine, CreateVine
-from .tomato import QueryTomato, CreateTomato
+from .dodoit import QueryDodoit, CreateDodoit
 
 
 class Query(
-        QueryVine,
-        QueryTomato,
-):
+        QueryDodoit, ):
     pass
 
 
 class Mutation(graphene.ObjectType):
-    create_vine = CreateVine.Field()
-    create_tomato = CreateTomato.Field()
+    create_dodoit = CreateDodoit.Field()
 
 
 schema = graphene.Schema(query=Query, mutation=Mutation)

@@ -24,6 +24,7 @@ allow_prereleases = true
 jupyter = "*"
 jupyter-contrib-nbextensions = "*"
 requests = "*"
+pandas = "*"
 
 [scripts]
 manage = "python $VIRTUAL_ENV/../manage.py"
@@ -35,8 +36,10 @@ c = "pipenv run console"
 notebook = "pipenv run manage shell_plus --notebook"
 routes = "pipenv run manage show_urls"
 test = "pipenv run manage test"
-migration = "pipenv run manage makemigrations"
+migration = "pipenv run manage makemigrations api"
 "db:migrate" = "pipenv run manage migrate"
 db = "pipenv run manage dbshell"
 "db:flush" = "pipenv run manage flush"
 "db:reset" = "pipenv run manage reset_db"
+
+'shell' = 'pipenv run manage shell <' # myscript.py
